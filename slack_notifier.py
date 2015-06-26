@@ -25,7 +25,6 @@ def post_message(success):
   commit = os.environ['COMMIT']
   project = os.environ['REPO_NAME']
   url = os.environ['SLACK_WEBHOOK']
-  channel = os.getenv('SLACK_CHANNEL', '#general')
 
   status_text = 'succeeded' if success else 'failed'
   color = 'good' if success else 'danger'
@@ -33,7 +32,6 @@ def post_message(success):
 
   message = {
     'username': 'Shippable',
-    'channel': channel,
     # 'icon_emoji': 'beer' if success else 'disappointed',
     'attachments': [{
       'pretext': text,

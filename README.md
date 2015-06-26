@@ -13,9 +13,7 @@ that is included in this repository. You can freely copy it to your project to s
 integration.
 
 You will need to provide the script a `SLACK_WEBHOOK` environment variable that will be the `/services/XXX/YYY/ZZZ` of your webook.
-You can also provide the channel to post to via the `SLACK_CHANNEL` environment variable, including `#`. If omited, it will post to `#general`.
 
-    - SLACK_CHANNEL=#myproject
     - secure: MRuHkLbL9HPkJPU5lzkKM1+NOq1S5RrhxEyhJkk60xxYiF7DMzydiBN8oFBjWrSmyGeGRuEC22a0I5ItobdWVszfcJCaXHwtfKzfGOUdKuyCnDgvojXhv/jrBvULyLK6zsLw3b8NMxdnwNsHqSPm19qW/EIGEl9Zv/637Igos69z9aT7+xrEG013+6HtKYb8RHm+iPSNsFoBi/RSAHYuM1eLTZWG2WAkjgzZaYmrHCgNwVmk+HOGR+TOWN7Iu5lrjyvC1XDCQrOvo1hZI30cd9OqJ5aadFm3exQpNhI4I7AgOnCbK3NoWNc/GAnqKXCvsaIQ80Jd/uLIOVyMjD6Xmg==
 
 By default, the build is marked as failure. To mark it as success, add `-s` option. 
