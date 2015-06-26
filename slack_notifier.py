@@ -17,13 +17,12 @@ def get_title(commit):
 def get_full_message(commit):
   return get_data_from_git('%b', commit)
 
-def post_message(success):
+def post_message(success, project):
   headers = {'Content-Type': 'application/json'}
   build_url = os.environ['BUILD_URL']
   build_number = os.environ['BUILD_NUMBER']
   branch = os.environ['BRANCH']
   commit = os.environ['COMMIT']
-  project = os.environ['REPO_NAME']
   url = os.environ['SLACK_WEBHOOK']
 
   status_text = 'succeeded' if success else 'failed'
@@ -58,7 +57,7 @@ def post_message(success):
 
 def main():
   try:
-    opts, args = getopt.getopt(sys.argv[1:], ':sf')
+    opts, args = getopt.getopt(sys.argv[1:], ':sf', ['project='])
   except getopt.GetoptError as err:
     print str(err)
     sys.exit(2)
@@ -67,8 +66,10 @@ def main():
   for o, arg in opts:
     if o == '-s':
       success = True
+    elif o == '--project':
+      project = arg
 
-  post_message(success)
+  post_message(success, project)
 
 if __name__ == '__main__':
   main()
